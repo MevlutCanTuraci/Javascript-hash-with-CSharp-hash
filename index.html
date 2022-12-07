@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js" integrity="sha512-E8QSvWZ0eCLGk4km3hxSsNmGWbLtSCSUcewDQPQWZF6pEU8GlT8a5fF32wOl1i8ftdMhssTrF/OhyGWwonTcXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+
+    <!-- Bootstrap script and css  -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap script and css  -->
+
+    <title>MD5 data</title>
+</head>
+<body>
+    
+    <div class="container mt-5">
+
+        <div>
+            Your data
+        </div>
+        <div>
+            <input id="your_data" class="form-control">
+        </div>
+
+        <button class="btn btn-success mt-3" id="startbtn">Start</button>
+
+        <div class="mt-4 text-wrap" id="result"></div>
+
+    </div>
+
+</body>
+</html>
+
+
+<script type="text/javascript">
+
+
+    $("#startbtn").click(function (e) { 
+        e.preventDefault();
+
+        var your_data = $("#your_data").val();
+
+        var data = your_data;
+
+        var md5 = CryptoJS.MD5(data);
+        $("#result").html("Hash : " +  md5.toString());
+        
+    });
+
+
+
+    /* For node js  */
+    // var crypto = require('crypto');
+
+    // function hashData(data) {
+    //     var md5 = crypto.createHash('md5');
+    //     md5.update(data);
+    //     return md5.digest('hex');
+    // }
+
+    // var data = "your data";
+    // console.log(hashData(data)); // output hash
+    /* For node js  */
+
+
+</script>
